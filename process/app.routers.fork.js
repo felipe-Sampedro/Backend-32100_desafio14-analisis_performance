@@ -26,7 +26,7 @@ const NUM_WORKERS = os.cpus().length;
 router.get("/info", (req, res) => {  
   let memory = JSON.stringify(process.memoryUsage());
   let args = JSON.stringify(config.ARGS);
-    console.log(`la informacion solicitada es: Puesto= ${args}, Num. Procesadores= ${NUM_WORKERS}, Plataforma= ${process.platform}, Node= ${process.version}, memoria= ${memory}, Path=${process.execPath}, IDP= ${process.pid}`);
+  console.log(`la informacion solicitada es: Puesto= ${args}, Num. Procesadores= ${NUM_WORKERS}, Plataforma= ${process.platform}, Node= ${process.version}, memoria= ${memory}, Path=${process.execPath}, IDP= ${process.pid}`);
   res.send(` 
     <h4>PORT:${args}</h4>    
     <h4>Num.Procesadores:${NUM_WORKERS}</h4>    
