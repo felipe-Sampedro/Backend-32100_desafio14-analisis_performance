@@ -20,5 +20,5 @@ function run(url) {
 
 console.log('Running benchmark...')
 
-//run('http://localhost:8080/api/info')
-run('http://localhost:8080/api/infozip')
+// run('http://localhost:8080/api/infoSinLog')
+run('http://localhost:8080/api/infoConLog')

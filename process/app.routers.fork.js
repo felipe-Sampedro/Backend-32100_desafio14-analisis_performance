@@ -22,8 +22,24 @@ router.get("/randoms", (req, res) => {
 });
 
 const NUM_WORKERS = os.cpus().length;
+// SIN console log
+router.get("/infoSinLog", (req, res) => {  
+  let memory = JSON.stringify(process.memoryUsage());
+  let args = JSON.stringify(config.ARGS);
+  res.send(` 
+    <h4>PORT:${args}</h4>    
+    <h4>Num.Procesadores:${NUM_WORKERS}</h4>    
+    <h4>Plataforma:${process.platform}</h4>
+    <h4>Node:${process.version}</h4>
+    <h4>Memoria:${memory}</h4>
+    <h4>Path:${process.execPath}</h4>
+    <h4>Id Process:${process.pid}</h4>
+    <h4>Directorio:${process.cwd()}</h4>
+    `+ repeat("Hola que tal?",1000));
+});
 
-router.get("/info", (req, res) => {  
+// CON console log
+router.get("/infoConLog", (req, res) => {  
   let memory = JSON.stringify(process.memoryUsage());
   let args = JSON.stringify(config.ARGS);
   console.log(`la informacion solicitada es: Puesto= ${args}, Num. Procesadores= ${NUM_WORKERS}, Plataforma= ${process.platform}, Node= ${process.version}, memoria= ${memory}, Path=${process.execPath}, IDP= ${process.pid}`);
@@ -40,6 +56,9 @@ router.get("/info", (req, res) => {
     repeat("Hola que tal?",1000));
 });
 
+
+
+// Ruta con middleware de compresion para evaluar rendimiento*** 
 // router.get("/infozip", compression(), (req, res) => {  
 //   let memory = JSON.stringify(process.memoryUsage());
 //   let args = JSON.stringify(config.ARGS);
